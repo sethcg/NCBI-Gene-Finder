@@ -7,8 +7,8 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "gene-finder",
-    "version": "0.1.0"
+    "productName": "ncbi-gene-finder",
+    "version": "1.0.0"
   },
   "tauri": {
     "allowlist": {
@@ -79,7 +79,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "gene-finder",
+      "identifier": "ncbi-gene-finder",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
