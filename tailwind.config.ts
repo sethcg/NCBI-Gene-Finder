@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 export default {
   content: [
@@ -7,7 +7,7 @@ export default {
   ],
 
   plugins: [
-    require('flowbite/plugin'), 
+    require('flowbite/plugin'),
     require('@tailwindcss/typography'),
     require('tailwind-scrollbar')
   ],
@@ -17,15 +17,15 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: '1rem',
+      padding: '1rem'
     },
     extend: {
       screens: {
-        'xs-height': { 'raw': '(min-height: 600px)' },
-        'sm-height': { 'raw': '(min-height: 700px)' },
-        'md-height': { 'raw': '(min-height: 800px)' },
-        'lg-height': { 'raw': '(min-height: 900px)' },
-        'xl-height': { 'raw': '(min-height: 1000px)' },
+        'xs-height': { raw: '(min-height: 600px)' },
+        'sm-height': { raw: '(min-height: 700px)' },
+        'md-height': { raw: '(min-height: 800px)' },
+        'lg-height': { raw: '(min-height: 900px)' },
+        'xl-height': { raw: '(min-height: 1000px)' }
       },
       colors: {
         text: {
@@ -114,4 +114,4 @@ export default {
       }
     }
   }
-} as Config
+} as Config;

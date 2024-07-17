@@ -4,7 +4,9 @@
 
   let baseClass = 'ml-2 flex items-center justify-center rounded-md h-10 file-status active'
   $: divClass = $fileResponse.ready ? baseClass + ' active' : baseClass
-  fileResponse.subscribe(() => { divClass = $fileResponse.ready ? baseClass + ' active'  : baseClass })
+  fileResponse.subscribe(() => {
+    divClass = $fileResponse.ready ? baseClass + ' active' : baseClass
+  })
 </script>
 
 <div class="flex items-center justify-end font-bold w-[9rem]">
@@ -12,10 +14,16 @@
     <div class={`${divClass} bg-success-400`}>
       <div class="flex flex-row items-center justify-center w-full h-full gap-2 px-2">
         <div class="flex items-center justify-center">
-          <CheckCircleIcon strokeWidth={2.5} class="text-success-800 focus:outline-none" size="22" />
+          <CheckCircleIcon
+            strokeWidth={2.5}
+            class="text-success-800 focus:outline-none"
+            size="22"
+          />
         </div>
         <div class="flex items-center justify-center">
-          <span style="user-select: none;" class="flex-1 text-success-800 font-semibold text-lg">File Ready</span>
+          <span style="user-select: none;" class="flex-1 text-success-800 font-semibold text-lg"
+            >File Ready</span
+          >
         </div>
       </div>
     </div>
@@ -26,7 +34,9 @@
           <AlertOctagonIcon strokeWidth={3} class="text-danger-900 focus:outline-none" size="22" />
         </div>
         <div class="flex items-center justify-center">
-          <span style="user-select: none;" class="flex-1 text-danger-900 font-semibold text-lg">File Error</span>
+          <span style="user-select: none;" class="flex-1 text-danger-900 font-semibold text-lg"
+            >File Error</span
+          >
         </div>
       </div>
     </div>
@@ -34,26 +44,25 @@
 </div>
 
 <style lang="postcss">
-  
   :global(.file-status) {
     opacity: 0;
-    display: none; 
-    animation: fadeInOut 0.7s ease-in-out; 
+    display: none;
+    animation: fadeInOut 0.7s ease-in-out;
   }
   :global(.file-status.active) {
-    opacity: 1; 
+    opacity: 1;
     display: block;
-    animation: fadeInOut 0.7s ease-in-out; 
+    animation: fadeInOut 0.7s ease-in-out;
   }
 
-  @keyframes fadeInOut { 
-    0% { 
-        opacity: 0;
-        display: none; 
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      display: none;
     }
-    100% { 
-        opacity: 1;
-        display: block; 
-    } 
+    100% {
+      opacity: 1;
+      display: block;
+    }
   }
 </style>

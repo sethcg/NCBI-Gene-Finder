@@ -1,6 +1,10 @@
 out
 dist
-pnpm-lock.yaml
+*/src-tauri/
+*/.vscode/
+package-lock.json
+README.md
 LICENSE.md
+SECURITY.md
 tsconfig.json
 tsconfig.*.json

@@ -4,8 +4,8 @@
   import { MinusIcon, SquareIcon, XIcon } from 'svelte-feather-icons'
 
   const minimize = (): Promise<void> => appWindow.minimize()
-  const maximize = (): Promise<void>  => appWindow.toggleMaximize()
-  const close = (): Promise<void>  => appWindow.close()
+  const maximize = (): Promise<void> => appWindow.toggleMaximize()
+  const close = (): Promise<void> => appWindow.close()
 
   const title = 'Gene Finder'
 </script>
@@ -15,7 +15,11 @@
     <!--DRAGGABLE TOP BAR-->
     <div class="grow h-full ml-2">
       <div class="flex flex-row items-center h-full">
-        <div class="flex-1 text-text-300 dark:text-text-300 text-sm font-semibold" style="user-select: none;" data-tauri-drag-region>
+        <div
+          class="flex-1 text-text-300 dark:text-text-300 text-sm font-semibold"
+          style="user-select: none;"
+          data-tauri-drag-region
+        >
           {title}
         </div>
       </div>

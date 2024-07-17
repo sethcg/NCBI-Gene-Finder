@@ -1,16 +1,15 @@
-import { writable } from "svelte/store"
-  
+import { writable } from 'svelte/store'
 
 // FILE PREVIEW
 export type FilePreview = {
-  handle: { show?: boolean, hide?: boolean }
+  handle: { show?: boolean; hide?: boolean }
   columns: string[] | undefined
   rows: any[][] | undefined
   active: boolean
 }
 
 const initialFilePreview: FilePreview = {
-  handle: { },
+  handle: {},
   rows: undefined,
   columns: undefined,
   active: false
@@ -28,9 +27,9 @@ export interface Column {
 export type HeaderData = {
   accessionColumn: Column | undefined
 }
-  
+
 const initialHeaderData: HeaderData = {
-  accessionColumn: undefined,
+  accessionColumn: undefined
 }
 
 export const tableHeaders = writable<HeaderData>(initialHeaderData)

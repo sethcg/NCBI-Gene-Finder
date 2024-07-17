@@ -1,17 +1,17 @@
 <script lang="ts">
-  import { sineOut } from 'svelte/easing';
-  import { tweened } from 'svelte/motion';
+  import { sineOut } from 'svelte/easing'
+  import { tweened } from 'svelte/motion'
 
   export let progress: number = 0
   export let label: string = ''
 
-  const tweenDuration = 400;
+  const tweenDuration = 400
   const _progress = tweened(0, {
-      duration: tweenDuration,
-      easing: sineOut
-  });
+    duration: tweenDuration,
+    easing: sineOut
+  })
 
-  $: _progress.set(Number(progress));
+  $: _progress.set(Number(progress))
 </script>
 
 <div class="flex-1">

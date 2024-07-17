@@ -19,7 +19,7 @@
       // SPLICE THE ROWS FROM THE TEMP INPUT CSV FILE TO CREATE A TABLE PREVIEW
       await invoke('setup_preview_async', { filepath: filepath, start: '0', len: '25' })
         .then(async () => {
-          await invoke('get_rows_async', { })
+          await invoke('get_rows_async', {})
             .then((response) => {
               const jsonStrings = (response as string).split(/\n/).filter(Boolean)
               let jsonObjects: any[] = []
@@ -49,24 +49,31 @@
     }
   })
 
-  let containerClass = "relative overflow-auto shadow-md rounded-lg hover:scrollbar--secondary-700 active:scrollbar-thumb-secondary-600 scrollbar scrollbar-thumb-secondary-500 scrollbar-track-secondary-300"
-  let heightClass = "xs-height:max-h-[280px] sm-height:max-h-[420px] md-height:max-h-[520px] lg-height:max-h-[600px] xl-height:max-h-[700px]"
+  let containerClass =
+    'relative overflow-auto shadow-md rounded-lg hover:scrollbar--secondary-700 active:scrollbar-thumb-secondary-600 scrollbar scrollbar-thumb-secondary-500 scrollbar-track-secondary-300'
+  let heightClass =
+    'xs-height:max-h-[280px] sm-height:max-h-[420px] md-height:max-h-[520px] lg-height:max-h-[600px] xl-height:max-h-[700px]'
 
   let baseClass = 'preview-table'
   $: divClass = $filePreview.active ? baseClass + ' active' : baseClass
-  filePreview.subscribe(() => { divClass = $filePreview.active ? baseClass + ' active'  : baseClass })
+  filePreview.subscribe(() => {
+    divClass = $filePreview.active ? baseClass + ' active' : baseClass
+  })
 </script>
 
 {#if $filePreview.columns && $filePreview.rows}
   <div class={divClass}>
-    <div class="{heightClass} {containerClass}">      
-      <table class="w-full text-sm text-left rtl:text-right " style="user-select: none">
-      <!-- TABLE HEADER -->
+    <div class="{heightClass} {containerClass}">
+      <table class="w-full text-sm text-left rtl:text-right" style="user-select: none">
+        <!-- TABLE HEADER -->
         <thead class="bg-secondary-500">
           <tr>
             {#each $filePreview.columns as column, index}
-              <th scope="col" class="py-1 px-2 text-left text-sm font-semibold text-text-100 max-w-32 min-w-20">
-                <ColumnButton label={column} columnIndex={index + 1} buttonId={`column_${index}`}/>
+              <th
+                scope="col"
+                class="py-1 px-2 text-left text-sm font-semibold text-text-100 max-w-32 min-w-20"
+              >
+                <ColumnButton label={column} columnIndex={index + 1} buttonId={`column_${index}`} />
               </th>
             {/each}
           </tr>
@@ -88,29 +95,27 @@
   </div>
 {/if}
 
-
 <style lang="postcss">
-  
   :global(.preview-table) {
     opacity: 0;
     display: none;
-    animation: fadeInOut 0.7s ease-in-out; 
+    animation: fadeInOut 0.7s ease-in-out;
   }
   :global(.preview-table.active) {
     opacity: 1;
     display: block;
-    animation: fadeInOut 0.7s ease-in-out; 
+    animation: fadeInOut 0.7s ease-in-out;
   }
 
-  @keyframes fadeInOut { 
-    0% { 
-        opacity: 0;
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
     }
-    50% { 
-        opacity: 0;
+    50% {
+      opacity: 0;
     }
-    100% { 
-        opacity: 1;
-    } 
+    100% {
+      opacity: 1;
+    }
   }
 </style>

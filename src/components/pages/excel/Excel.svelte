@@ -22,5 +22,4 @@
   <div class="w-full place-self-end mb-[18px]">
     <Controls />
   </div>
-
 </div>

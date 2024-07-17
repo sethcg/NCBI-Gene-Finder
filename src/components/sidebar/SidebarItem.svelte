@@ -13,11 +13,17 @@
     buttonId.toUpperCase() == $pageStore.route.toUpperCase() ? activeClass : nonActiveClass
   pageStore.subscribe((value: PageState) => {
     buttonClass = buttonId.toUpperCase() == value.route.toUpperCase() ? activeClass : nonActiveClass
-  });
+  })
 </script>
 
 <div class={divClass}>
-  <Button id={buttonId} on:click class={`${buttonClass} sidebar-button`} color={'none'} disabled={$processData.processing}>
+  <Button
+    id={buttonId}
+    on:click
+    class={`${buttonClass} sidebar-button`}
+    color={'none'}
+    disabled={$processData.processing}
+  >
     <div class="flex text-base">
       <slot name="icon" />
     </div>
